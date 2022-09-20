@@ -5,22 +5,14 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['localhost:9090']
-  {% for server in hostvars %}
   - job_name: 'node_exporter'
     scrape_interval: 5s
     static_configs:
       - targets: ['localhost:9100']
-  {% endfor %}
-    - job_name: 'golang-app'
+    metrics_path: /metrics
+  - job_name: 'golang-app'
     scrape_interval: 5s
     static_configs:
       - targets: ['localhost:8080']
     metrics_path: /metrics
-  {% for server in hostvars %}
-- job_name: '{{  server  }}'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['{{  server  }}:9100']
-    metrics_path: /metrics
-  {% endfor %}
 
