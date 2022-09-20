@@ -1,7 +1,7 @@
 ---
 - name: Copy docker compose
   ansible.builtin.copy:
-    src: "{{ location }}"
+    src: go-app/app
     dest: /home/ubuntu/app
 
 
