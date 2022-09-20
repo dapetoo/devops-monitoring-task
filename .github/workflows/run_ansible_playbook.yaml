@@ -6,38 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
 jobs:
-  # server_provisioning:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Run Ansible Playbook
-  #     - uses: hashicorp/setup-terraform@v2
-  #       with:
-  #         terraform_version: 1.1.7
-  #     - run: cd ./terraform
-  #     - run: terraform init
-  
-  provision_server:
-    runs-on: ubuntu-latest
-    defaults:
-    run:
-      working-directory: ${{ env.tf_actions_working_dir }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hashicorp/setup-terraform@v2
-      - uses: actions/checkout@v2
-      - name: Setup server
-        run: |
-          echo "ping..............."
-      - uses: actions/checkout@v2
-      - name: Run Ansible Playbook
-      # - uses: hashicorp/setup-terraform@v2
-      #   with:
-      #     terraform_version: 1.1.7
-      - run: cd ./terraform
-      - run: terraform init
-
-  provisioning_server:
+  setup_ansible:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
