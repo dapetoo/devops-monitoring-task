@@ -16,7 +16,7 @@ jobs:
           pipx inject ansible-core jmespath
   
   run_ansible:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     needs: setup_ansible
     steps:
       - name: Run Ansible Playbook
