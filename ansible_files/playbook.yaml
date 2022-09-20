@@ -7,9 +7,9 @@
 - name: Install Prometheus, and NodeExporter on the server using cloudalchemy collections/role
   hosts: server
   roles:
-  - cloudalchemy.node_exporter
-  - cloudalchemy.blackbox-exporter
-  - cloudalchemy.prometheus
+  # - cloudalchemy.node_exporter
+  # - cloudalchemy.blackbox-exporter
+  # - cloudalchemy.prometheus
 
 - name: Running Golang application on the server
   hosts: server
