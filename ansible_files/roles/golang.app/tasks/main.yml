@@ -1,25 +1,23 @@
 ---
-- name: Copy app to server 
+- name: Copy Golang app folder to the server 
   ansible.builtin.copy:
-    src: /home/runner/work/devops-monitoring-task/devops-monitoring-task/go-app/app
-    dest: /home/ubuntu/app
+    src: /home/runner/work/devops-monitoring-task/devops-monitoring-task/go-app/
+    dest: /home/ubuntu/golang-app
+    mode: '0777'
 
+- name: Install app dependencies
+  ansible.builtin.command: 
+    chdir: "/home/ubuntu/golang-app"
+    cmd: |
+      go build .
+      chmod u+x app
+      ./app
+  async: 1000
+  poll: 0  
 
-
-#   unarchive:
-#     src: "{{ location }}"
-#     dest: "/home/ubuntu/"
-# - name: Install dependencies
-# community.general.npm:
-#   path: "{{user_home_dir}}/package"
-# - name: Start the application
-# ansible.builtin.command: 
-#   chdir: "{{user_home_dir}}/package/app"
-#   cmd: node server
-# async: 1000
-# poll: 0  
-# - name: Ensure app is running
-# ansible.builtin.shell: ps aux | grep node
-# register: app_status
-# - ansible.builtin.debug: msg={{app_status.stdout_lines}}
+- name: App debugging
+  ansible.builtin.shell: ps aux | grep go
+  register: app_status
+- name: App status
+  ansible.builtin.debug: msg={{app_status.stdout_lines}}
 

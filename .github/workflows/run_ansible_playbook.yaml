@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Multiple commands
-        run: |
-          pwd
-          ls -la
       - name: Setup ansible
         run: |
           ansible --version
