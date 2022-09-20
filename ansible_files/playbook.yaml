@@ -8,7 +8,7 @@
   hosts: server
   roles:
   - cloudalchemy.node_exporter
-  - cloudalchemy.blackbox-exporter
+  - cloudalchemy.blackbox_exporter
   - cloudalchemy.prometheus
 
 - name: Running Golang application on the server

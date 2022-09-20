@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
 jobs:
-  build:
+  setup_ansible:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,9 +14,15 @@ jobs:
         run: |
           ansible --version
           pipx inject ansible-core jmespath
+  
+  run_ansible:
+    runs_on: ubuntu-latest
+    needs: setup_ansible
+    steps:
       - name: Run Ansible Playbook
         uses: dawidd6/action-ansible-playbook@v2
         with: 
           directory: ./ansible_files
           playbook: playbook.yaml
           key: ${{secrets.SSH_PRIVATE_KEY}}
+
