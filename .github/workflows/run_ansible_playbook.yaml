@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Python Pip Install
-        uses: logikal-code/pip-install@v1.0.0
+        uses: sudo logikal-code/pip-install@v1.0.0
       - name: Run Ansible Playbook
         uses: dawidd6/action-ansible-playbook@v2
         with: 
