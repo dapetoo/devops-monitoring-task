@@ -11,8 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Python Pip Install
-        uses: sudo logikal-code/pip-install@v1.0.0
+      - name: Setup ansible
+        run: |
+          ansible --version
+          pipx inject ansible-core jmespath
+      # - name: Python Pip Install
+      #   uses: logikal-code/pip-install@v1.0.0
       - name: Run Ansible Playbook
         uses: dawidd6/action-ansible-playbook@v2
         with: 
