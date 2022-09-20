@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup_ansible
     steps:
+      - uses: actions/checkout@v2
       - name: Run Ansible Playbook
         uses: dawidd6/action-ansible-playbook@v2
         with: 
