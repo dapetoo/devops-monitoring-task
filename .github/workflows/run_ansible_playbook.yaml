@@ -17,7 +17,22 @@ jobs:
   #     - run: cd ./terraform
   #     - run: terraform init
   
-  setup_ansible:
+  provision_server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup server
+        run: |
+          echo "ping..............."
+      - uses: actions/checkout@v2
+      - name: Run Ansible Playbook
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.1.7
+      - run: cd ./terraform
+      - run: terraform init
+
+  provisioning_server:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
