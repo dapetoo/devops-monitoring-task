@@ -18,7 +18,6 @@ jobs:
   #     - run: terraform init
   
   setup_ansible:
-    needs: server_provisioning
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
