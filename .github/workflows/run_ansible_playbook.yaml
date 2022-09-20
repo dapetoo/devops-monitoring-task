@@ -1,0 +1,19 @@
+name: "Run Ansible Playbook"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Ansible Playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: ./ansible_files/playbook.yaml
+          directory: ./ansible_files/
+          key: ${{secrets.SSH_PRIVATE_KEY}}

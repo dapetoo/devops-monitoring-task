@@ -1,0 +1,5 @@
+---
+  - name: cloudalchemy.node_exporter
+  - name: cloudalchemy.blackbox-exporter
+  - name: cloudalchemy.prometheus
+  - name: gantsign.golang

@@ -1,0 +1,10 @@
+[server]
+54.90.248.29
+
+[udacity:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=/home/dapetoo/Downloads/udacity-ansible-key.pem
+
+[nexus:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=/home/dapetoo/Downloads/udacity-ansible-key.pem

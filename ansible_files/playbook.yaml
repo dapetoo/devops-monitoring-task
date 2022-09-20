@@ -1,0 +1,16 @@
+---
+- name: Install GOSDK on the server using gantsign.golang role
+  hosts: server
+  roles:
+  - gantsign.golang
+  - cloudalchemy.prometheus
+  - cloudalchemy.node_exporter
+  - cloudalchemy.blackbox-exporter
+
+- name: Install Prometheus, and NodeExporter on the server using cloudalchemy collections/role
+  hosts: server
+  roles:
+  - gantsign.golang
+  - cloudalchemy.prometheus
+  - cloudalchemy.node_exporter
+  - cloudalchemy.blackbox-exporter
