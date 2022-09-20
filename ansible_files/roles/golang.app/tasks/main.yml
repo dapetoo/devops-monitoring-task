@@ -16,8 +16,11 @@
   poll: 0  
 
 - name: App debugging
-  ansible.builtin.shell: ps aux | grep go
+  become: true
+  ansible.builtin.shell: 
+    ps aux | grep go 
+    netstat -tulpn | grep LISTEN
   register: app_status
 - name: App status
-  ansible.builtin.debug: msg={{app_status.stdout_lines}}
+  ansible.builtin.debug: msg={{ app_status.stdout_lines }}
 
