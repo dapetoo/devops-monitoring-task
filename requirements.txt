@@ -1,3 +1,5 @@
 jmespath
 boto3
 botocore
+git-lfs
+ansible-lint

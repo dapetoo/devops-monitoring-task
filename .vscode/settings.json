@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json#/$defs/tasks": "file:///home/dapetoo/Learning/DevOpsNigeria/monitoring/ansible_files/roles/golang.app/tasks/main.yml"
+    }
+}

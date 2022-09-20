@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: [ "main" ]
 jobs:
   build:
@@ -15,8 +14,6 @@ jobs:
         run: |
           ansible --version
           pipx inject ansible-core jmespath
-      # - name: Python Pip Install
-      #   uses: logikal-code/pip-install@v1.0.0
       - name: Run Ansible Playbook
         uses: dawidd6/action-ansible-playbook@v2
         with: 

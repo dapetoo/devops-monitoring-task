@@ -1,0 +1,25 @@
+---
+- name: Copy docker compose
+  ansible.builtin.copy:
+    src: "{{ location }}"
+    dest: /home/ubuntu/app
+
+
+
+#   unarchive:
+#     src: "{{ location }}"
+#     dest: "/home/ubuntu/"
+# - name: Install dependencies
+# community.general.npm:
+#   path: "{{user_home_dir}}/package"
+# - name: Start the application
+# ansible.builtin.command: 
+#   chdir: "{{user_home_dir}}/package/app"
+#   cmd: node server
+# async: 1000
+# poll: 0  
+# - name: Ensure app is running
+# ansible.builtin.shell: ps aux | grep node
+# register: app_status
+# - ansible.builtin.debug: msg={{app_status.stdout_lines}}
+

@@ -10,3 +10,8 @@
   - cloudalchemy.node_exporter
   - cloudalchemy.blackbox-exporter
   - cloudalchemy.prometheus
+
+- name: Running Golang application on the server
+  hosts: server
+  roles:
+  - golang.app
