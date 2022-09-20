@@ -5,12 +5,11 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['localhost:9090']
-      - targets: ['localhost:9090']
   {% for server in hostvars %}
   - job_name: 'node_exporter'
     scrape_interval: 5s
     static_configs:
-      - targets: ['{{ hostvars[server].ansible_host }}:9100']
+      - targets: ['localhost:9100']
   {% endfor %}
     - job_name: 'golang-app'
     scrape_interval: 5s
